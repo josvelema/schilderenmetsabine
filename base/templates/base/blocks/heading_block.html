@@ -1,0 +1,7 @@
+{% load wagtailcore_tags %}
+
+{% if self.size %}
+    <{{ self.size }} class="section-heading">{{ self.heading_text }}</{{ self.size }}>
+{% else %}
+    <h2 class="section-heading">{{ self.heading_text }}</h2>
+{% endif %}

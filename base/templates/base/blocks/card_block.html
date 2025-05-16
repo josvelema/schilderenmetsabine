@@ -1,0 +1,19 @@
+{% load wagtailcore_tags %}
+
+<article class="card">
+    <h3 class="card-heading">{{ self.title }}</h3>
+    {% if self.image %}
+        <img src="{{ self.image.url }}" alt="{{ self.image.title }}">
+    {% endif %}
+    <div class="card-content">
+        <div class="card-text">
+            {{ self.text|richtext }}
+        </div>
+        {% if self.link_page %}
+        <a href="{{ self.link_page.url }}" class="card-link">{{ self.link_text }}</a>
+    {% elif self.link_url %}
+        <a href="{{ self.link_url }}" class="card-link">{{ self.link_text }}</a>
+    {% endif %}
+    </div>
+</article>
+ 

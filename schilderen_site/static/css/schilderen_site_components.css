@@ -1,0 +1,258 @@
+/* Schilderen site components CSS */
+
+.gradient-smokey-white {
+  background-color: var(--primary-100);
+  background-image: url("../img/overlay.png"),
+    linear-gradient(
+      135deg,
+      hsla(0, 0%, 100%, 0.25) 0%,
+      hsla(0, 0%, 100%, 0.25) 12%,
+      hsla(0, 0%, 100%, 0.25) 21%,
+      hsla(0, 0%, 100%, 0.3) 29%,
+      hsla(0, 0%, 100%, 0.35) 36%,
+      hsla(0, 0%, 100%, 0.45) 42%,
+      hsla(0, 0%, 100%, 0.5) 49%,
+      hsla(0, 0%, 100%, 0.55) 54%,
+      hsla(0, 0%, 100%, 0.6) 60%,
+      hsla(0, 0%, 100%, 0.65) 66%,
+      hsla(0, 0%, 100%, 0.6) 71%,
+      hsla(0, 0%, 100%, 0.65) 76%,
+      hsla(0, 0%, 100%, 0.7) 81%,
+      hsla(0, 0%, 100%, 0.7) 86%,
+      hsla(0, 0%, 100%, 0.75) 91%,
+      hsla(0, 0%, 100%, 0.75) 95%,
+      hsla(0, 0%, 100%, 0.75) 100%
+    );
+
+  background-size: 128px 128px, auto;
+}
+
+.gradient-brown {
+  background-color: hsl(30, 50%, 87%);
+  background-image: url("../img/grain.png"),
+    linear-gradient(
+      135deg,
+      hsla(30, 50%, 87%, 0.25) 0%,
+      hsla(30, 50%, 87%, 0.25) 12%,
+      hsla(30, 50%, 87%, 0.25) 21%,
+      hsla(30, 50%, 87%, 0.3) 29%,
+      hsla(30, 50%, 87%, 0.35) 36%,
+      hsla(30, 50%, 87%, 0.45) 42%,
+      hsla(30, 50%, 87%, 0.5) 49%,
+      hsla(30, 50%, 87%, 0.55) 54%,
+      hsla(30, 50%, 87%, 0.6) 60%,
+      hsla(30, 50%, 87%, 0.65) 66%,
+      hsla(30, 50%, 87%, 0.6) 71%,
+      hsla(30, 50%, 87%, 0.65) 76%,
+      hsla(30, 50%, 87%, 0.7) 81%,
+      hsla(30, 50%, 87%, 0.7) 86%,
+      hsla(30, 50%, 87%, 0.75) 91%,
+      hsla(30, 50%, 87%, 0.75) 95%,
+      hsla(30, 50%, 87%, 0.75) 100%
+    );
+
+  background-size: 64px 64px, auto;
+}
+
+.gradient-neutral-canvas {
+  background-color: var(--neutral-100);
+  background-image: linear-gradient(
+      135deg,
+      hsl(22, 35%, 95%, 0.25) 0%,
+      hsl(22, 35%, 95%, 0.25) 12%,
+      hsl(22, 35%, 95%, 0.25) 21%,
+      hsl(22, 35%, 95%, 0.3) 29%,
+      hsl(22, 35%, 95%, 0.35) 36%,
+      hsl(22, 35%, 95%, 0.45) 42%,
+      hsl(22, 35%, 95%, 0.5) 49%,
+      hsl(22, 35%, 95%, 0.55) 54%,
+      hsl(22, 35%, 95%, 0.6) 60%,
+      hsl(22, 35%, 95%, 0.65) 66%,
+      hsl(22, 35%, 95%, 0.6) 71%,
+      hsl(22, 35%, 95%, 0.65) 76%,
+      hsl(22, 35%, 95%, 0.7) 81%,
+      hsl(22, 35%, 95%, 0.7) 86%,
+      hsl(22, 35%, 95%, 0.75) 91%,
+      hsl(22, 35%, 95%, 0.72) 935%,
+      hsl(22, 35%, 95%, 0.75) 100%
+    );
+
+  background-size: auto;
+}
+
+/* .gradient-carton-canvas  */
+
+.gradient-read-calm {
+  background-color: var(--neutral-100);
+  background-image: url("../img/overlay.png"),
+    linear-gradient(
+      45deg,
+      var(--neutral-100-rgba) 25%,
+      var(--neutral-200-rgba) 65%
+    );
+
+  background-size: 128px 128px, auto;
+}
+
+.gradient-fixed {
+  background-attachment: fixed;
+}
+
+
+
+.site-header {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: var(--spacing-base);
+  border-bottom: 1px solid var(--border-color);
+
+  } 
+
+  .site-header .logo {
+   width: min(100%, 200px);
+  }
+
+  .site-header .logo img,
+  .image-scroller .slide img
+   {
+    border: unset;
+    box-shadow: unset;
+    border-radius: 0;
+  }
+
+  .image-scroller .slide img:hover {
+    transform: none;
+    box-shadow: none;
+    
+  }
+
+  .site-header .logo img {
+
+    width: min(100%, 200px);
+    aspect-ratio: 16 / 9 ;
+    filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.15));
+  }
+
+nav.main-nav {
+  padding-block: 0.5rem;
+  font-size: 1.125rem;
+}
+
+section.hero {
+  position: relative;
+  width: 100%;
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    height: min(100vh - var(--spacing-base), 800px);
+
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  z-index: 1;
+}
+
+.hero .hero-image {
+  position: absolute;
+  
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
+.hero .hero-image img {
+  width: 100%;
+    height: min(100vh - var(--spacing-base), 800px);
+object-fit: cover;
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+
+
+.site-footer {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%,300px), 1fr));
+  place-items: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  
+}
+
+.site-footer p {
+  text-wrap: balance;
+}
+
+.footer-nav {
+  grid-column: 1 / -1;
+}
+
+.footer-nav div {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer ul li {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+footer ul li a {
+  color: var(--primary);
+}
+
+.image-scroller {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-scroller .slides {
+  position: relative;
+}
+
+.image-scroller .slide {
+  opacity: 0;
+  transition: opacity 1s ease;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.image-scroller .slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.scroller-controls {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.scroller-controls .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  border-radius: 50%;
+  border: none;
+  outline: 1px solid transparent;
+  outline-offset: 3px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.scroller-controls .dot:hover,
+.scroller-controls .dot:focus {
+    cursor: pointer;
+}
+
+.scroller-controls .dot.active {
+  background-color: #333;
+}

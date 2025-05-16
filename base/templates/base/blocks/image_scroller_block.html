@@ -1,0 +1,22 @@
+{% load static wagtailimages_tags  %}
+
+<div class="image-scroller" data-has-controls="{{ self.show_controls|yesno:'true,false' }}">
+  <div class="slides">
+    {% for image in self.images %}
+      <div class="slide{% if forloop.first %} active{% endif %}">
+        {% image image original as img %}
+        <img src="{{ img.url }}" alt="{{ img.alt }}">
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if self.show_controls %}
+    <div class="scroller-controls">
+      {% for image in self.images %}
+        <span class="dot{% if forloop.first %} active{% endif %}" data-index="{{ forloop.counter0 }}"></span>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<script src="{% static 'js/image-scroller.js' %}"></script>
