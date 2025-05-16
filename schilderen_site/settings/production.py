@@ -1,4 +1,12 @@
 from .base import *
+import os
+from django.core.exceptions import ImproperlyConfigured
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+
+if not SECRET_KEY:
+    raise ImproperlyConfigured("SECRET_KEY environment variable is missing.")
+
 
 print("✅ Using production settings")
 print("✅ ROOT_URLCONF is:", ROOT_URLCONF)
