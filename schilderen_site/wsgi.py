@@ -13,4 +13,7 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "schilderen_site.settings.production")
 
+print("DJANGO_SETTINGS_MODULE =", os.environ.get("DJANGO_SETTINGS_MODULE"))  # tijdelijk toevoegen voor debug
+
+
 application = get_wsgi_application()
