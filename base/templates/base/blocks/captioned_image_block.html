@@ -1,8 +1,0 @@
-{% load wagtailcore_tags wagtailimages_tags %}
-
-<figure class="captioned-image">
-    {% image self.image original alt=self.image.title %}
-    {% if self.caption %}
-        <figcaption>{{ self.caption }}</figcaption>
-    {% endif %}
-</figure>
