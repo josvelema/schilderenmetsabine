@@ -1,0 +1,81 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="nl/NL">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+        {% block title %}
+        {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+        {% endblock %}
+        {% block title_suffix %}
+        {% wagtail_site as current_site %}
+        {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+        {% endblock %}
+    </title>
+    {% if page.search_description %}
+    <meta name="description" content="{{ page.search_description }}" />
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {# Force all links in the live preview panel to be opened in a new tab #}
+    {% if request.in_preview_panel %}
+    <base target="_blank">
+    {% endif %}
+
+    {# Global stylesheets #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/schilderen_site.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/schilderen_site_components.css' %}">
+
+    {% block extra_css %}
+    {# Override this in templates to add extra stylesheets #}
+    {% endblock %}
+</head>
+
+<body class="{% block body_class %}{% endblock %} gradient-neutral-canvas gradient-fixed">
+    {% wagtailuserbar %}
+
+    {# Header #}
+    {% include "includes/header.html" %}
+
+    <!-- breadcrumnbs -->
+
+    {% if self.get_ancestors|length > 2 %}
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+        <div class="breadcrumbs">
+            <span><a href="{{ self.get_parent.url }}">{{ self.get_parent.title }}</a>&nbsp;/</span>
+            {% for ancestor in self.get_ancestors|slice:"3:" %}
+            <span><a href="{{ ancestor.url }}">{{ ancestor.title }}</a></span>
+            {% endfor %}
+            <span>{{ self.title }}</span>
+            
+ 
+        </div>
+    </nav>
+    {% endif %}
+
+
+    {# Main content #}
+    <main class="gradient-brown gradient-fixed">
+
+        {% block content %}{% endblock %}
+    </main>
+
+    {# Footer #}
+    {% include "includes/footer.html" %}
+
+    {# Global javascript #}
+    <script type="text/javascript" src="{% static 'js/schilderen_site.js' %}"></script>
+
+    {% block extra_js %}
+    {# Override this in templates to add extra javascript #}
+    {% endblock %}
+</body>
+
+</html>

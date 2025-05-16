@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+  {% for block in page.intro %}
+    {% include_block block %}
+  {% endfor %}
+
+  {% if form_submission_success %}
+    <section class="form-thankyou">
+
+    {% for block in page.thank_you %}
+      {% include_block block %}
+    {% endfor %}
+    </section>
+  {% else %}
+    <form action="{{ page.url }}" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Verstuur</button>
+    </form>
+  {% endif %}
+{% endblock %}

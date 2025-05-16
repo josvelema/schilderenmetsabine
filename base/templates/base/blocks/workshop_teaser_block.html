@@ -1,0 +1,11 @@
+{% load wagtailcore_tags %}
+<article class="workshop-teaser">
+    <h3>{{ self.workshop_page.title }}</h3>
+    <p>{{ self.workshop_page.date }} – {{ self.workshop_page.location }}</p>
+    {% if self.workshop_page.status_override %}
+    <span class="label override-label">{{ self.workshop_page.status_override }}</span>
+    {% else %}
+    <span class="label">{{ self.workshop_page.get_display_status }}</span>
+    {% endif %}
+    
+</article>

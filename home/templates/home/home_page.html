@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+{% block content %}
+
+    {# Hero Section #}
+    <section class="hero gradient-neutral-canvas gradient-fixed">
+        {% if page.hero_image %}
+        {% image page.hero_image original as hero %}
+          <div class="hero-image"><img src="{{ hero.url }}" alt="{{ hero.alt }}" /></div>
+        
+      {% endif %}
+        <header class="hero-header">
+            <h1>{{ page.hero_title}}</h1>
+            <h2>{{ page.hero_text }}</h2>
+            
+            <div class="hero-content">
+                {% if page.hero_cta_link %}
+                    <a href="{{ page.hero_cta_link.url }}" class="btn outline hero-cta">
+                        {{ page.hero_cta }}
+                    </a>
+                {% endif %}
+            </div>
+        </header>
+    </section>
+    {# Flexibele content via StreamField #}
+    {% for block in page.body %}
+        {% include_block block %}
+    {% endfor %}
+
+
+{% endblock %}

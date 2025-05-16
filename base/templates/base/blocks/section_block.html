@@ -1,0 +1,12 @@
+{% load wagtailcore_tags %}
+
+<section class="section-block gradient-neutral-canvas">
+    {% if self.heading %}
+        <h2>{{ self.heading }}</h2>
+    {% endif %}
+    <div class="section-content">
+        {% for inner_block in self.content %}
+            {% include_block inner_block %}
+        {% endfor %}
+    </div>
+</section>
