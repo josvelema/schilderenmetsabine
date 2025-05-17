@@ -1,6 +1,6 @@
 {% load static wagtailimages_tags  %}
 
-<div class="image-scroller" data-has-controls="{{ self.show_controls|yesno:'true,false' }}">
+<section class="image-scroller" data-has-controls="{{ self.show_controls|yesno:'true,false' }}">
   <div class="slides">
     {% for image in self.images %}
       <div class="slide{% if forloop.first %} active{% endif %}">
@@ -17,6 +17,6 @@
       {% endfor %}
     </div>
   {% endif %}
-</div>
+</section>
 
 <script src="{% static 'js/image-scroller.js' %}"></script>

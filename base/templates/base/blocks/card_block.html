@@ -1,19 +1,25 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
 
-<article class="card">
+<article class="card gradient-neutral-canvas">
     <h3 class="card-heading">{{ self.title }}</h3>
     {% if self.image %}
-        <img src="{{ self.image.url }}" alt="{{ self.image.title }}">
+    {% image self.image fill-600x400 as img %}
+    <img src="{{ img.url }}" alt="{{ img.alt }}">
+    {% else %}
+    <img src="{% static 'images/placeholder.png' %}" alt="Placeholder image">
+    {% endif %}
+    {% if self.image_caption %}
+
     {% endif %}
     <div class="card-content">
         <div class="card-text">
             {{ self.text|richtext }}
         </div>
         {% if self.link_page %}
-        <a href="{{ self.link_page.url }}" class="card-link">{{ self.link_text }}</a>
-    {% elif self.link_url %}
-        <a href="{{ self.link_url }}" class="card-link">{{ self.link_text }}</a>
-    {% endif %}
+        <a href="{{ self.link_page.url }}" class="btn card-link">{{ self.link_text }}</a>
+        {% elif self.link_url %}
+        <a href="{{ self.link_url }}" class="btn card-link">{{ self.link_text }}</a>
+        {% endif %}
     </div>
 </article>
- 

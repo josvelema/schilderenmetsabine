@@ -8,6 +8,7 @@ from base.blocks import HomeStreamBlock, WorkshopSessionBlock
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail import blocks
 from django.utils.timezone import now
+from wagtail.images.blocks import ImageChooserBlock
 
 
 class WorkshopIndexPage(Page):
@@ -37,8 +38,18 @@ class WorkshopPage(Page):
     use_json_field=True,
     verbose_name="Sessies",
     help_text="Voeg hier de data en tijden van de workshop toe."
-)
+    )
     location = models.CharField(max_length=255)
+    
+    workshop_image = models.ForeignKey(
+    'wagtailimages.Image',
+    null=True,
+    blank=True,
+    on_delete=models.SET_NULL,
+    related_name='+',
+    help_text='Afbeelding voor de workshop kaart',
+    )
+    
     description = StreamField(HomeStreamBlock(), use_json_field=True, blank=True)
 
     calendly_embed = models.URLField(
@@ -75,6 +86,7 @@ class WorkshopPage(Page):
             FieldPanel("location"),
             FieldPanel("status"),
             FieldPanel("status_override"),
+            FieldPanel("workshop_image"),
             FieldPanel("description"),
             FieldPanel("calendly_embed"),
         ], heading="Workshop details"),

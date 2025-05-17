@@ -7,34 +7,60 @@
  :root {
 
   
+    /* Primary: Bare Bone */
+    --primary-100: #FFFCF2;
+    --primary-200: #FFF9EC;
+    --primary-300: #FDF4E5;
+    --primary-400: #F7EBDA;
+    --primary-500: #EDDDCC;
+    --primary-600: #BBA18C;
+    --primary-700: #8A705E;
+    --primary-800: #58443A;
+    --primary-900: #261D19;
+
+    /* Accent: Beautiful Blue */
+    --accent-100: #F2F5FF;
+    --accent-200: #BED2FE;
+    --accent-300: #86B0F7;
+    --accent-400: #4E8DE3;
+    --accent-500: #1A69BD;
+    --accent-600: #095697;
+    --accent-700: #024571;
+    --accent-800: #00324C;
+    --accent-900: #001B26;
+
     /* Neutral */
-    --neutral-100: #fafcfa;
-    --neutral-200: #e7ede7;
-    --neutral-300: #d4ddd4;
-    --neutral-400: #c2cdc1;
-    --neutral-500: #b1bdaf;
-    --neutral-600: #8e978b;
-    --neutral-700: #6a7168;
-    --neutral-800: #474c45;
-    --neutral-900: #242622;
-  
+    --neutral-100: #FCFCFA;
+    --neutral-200: #EBEAE8;
+    --neutral-300: #DAD8D6;
+    --neutral-400: #C9C7C4;
+    --neutral-500: #B8B5B2;
+    --neutral-600: #938F8C;
+    --neutral-700: #6F6A68;
+    --neutral-800: #4B4644;
+    --neutral-900: #262322;
+
     /* neutral alpha  */
-    --neutral-100-a: rgba(250, 252, 250, 0.8);
-    --neutral-200-a: rgba(231, 236, 231, 0.75);
-    --neutral-300-a: rgba(213, 219, 213, 0.7);
-    --neutral-400-a: rgba(195, 203, 195, 0.65);
-    --neutral-500-a: rgba(178, 186, 175, 0.6);
-    --neutral-600-a: rgba(141, 149, 140, 0.55);
-    --neutral-700-a: rgba(106, 113, 104, 0.5);
-    --neutral-800-a: rgba(71, 76, 69, 0.5);
-    --neutral-900-a: rgba(36, 38, 34, 0.48);
+
+    --neutral-alpha-100: rgba(252, 252, 250, 0.5);
+    --neutral-alpha-200: rgba(235, 234, 232, 0.5);
+    --neutral-alpha-300: rgba(218, 216, 214, 0.6);
+    --neutral-alpha-400: rgba(201, 199, 196, 0.6);
+    --neutral-alpha-500: rgba(184, 181, 178, 0.6);
+    --neutral-alpha-600: rgba(147, 143, 140, 0.6);
+    --neutral-alpha-700: rgba(111, 106, 104, 0.6);
+    --neutral-alpha-800: rgba(75, 70, 68, 0.6);
+    --neutral-alpha-900: rgba(38, 35, 34, 0.6);
+
 
   /* Modern Color Palette */
   --primary: #364153;
   --primary-contrast: #202732;
   --primary-invert: #364153;
-  --secondary: #64748b;
-  --secondary-light: #94a3b8;
+  /* --secondary: #64748b;
+  --secondary-light: #94a3b8; */
+  --secondary: var(--accent-800);
+  --secondary-light: var(--accent-600);
   --success: #10b981;
   --success-light: #34d399;
   --danger: #ef4444;
@@ -48,8 +74,9 @@
   --body-bg: #fafafa;
   --body-color: #334155;
   --heading-color: #1e293b;
-  --link-color: #1d72fc;
-  --link-hover-color: #0b65ff;
+ 
+  --link-color: var(--accent-500);
+  --link-hover-color: var(--accent-600);
   --border-color: #e2e8f0;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --card-bg: #fafafa;
@@ -59,11 +86,44 @@
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-contrast) 100%);
   --gradient-link: linear-gradient(135deg, var(--link-color) 0%, var(--link-hover-color) 100%);
+  /* --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%); */
   --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
   --gradient-success: linear-gradient(135deg, var(--success) 0%, var(--success-light) 100%);
   --gradient-danger: linear-gradient(135deg, var(--danger) 0%, var(--danger-light) 100%);
   --gradient-warning: linear-gradient(135deg, var(--warning) 0%, var(--warning-light) 100%);
   --gradient-info: linear-gradient(135deg, var(--info) 0%, var(--info-light) 100%);
+
+--gradient-primary-light: linear-gradient(
+    120deg,
+    hsl(31deg 48% 86%) 0%,
+    hsl(33deg 54% 88%) 46%,
+    hsl(35deg 62% 90%) 66%,
+    hsl(35deg 69% 91%) 81%,
+    hsl(36deg 78% 93%) 92%,
+    hsl(38deg 86% 95%) 100%
+  );
+  
+   --gradient-smoke: linear-gradient(
+      135deg,
+      hsla(0, 0%, 100%, 0.25) 0%,
+      hsla(0, 0%, 100%, 0.25) 12%,
+      hsla(0, 0%, 100%, 0.25) 21%,
+      hsla(0, 0%, 100%, 0.3) 29%,
+      hsla(0, 0%, 100%, 0.35) 36%,
+      hsla(0, 0%, 100%, 0.45) 42%,
+      hsla(0, 0%, 100%, 0.5) 49%,
+      hsla(0, 0%, 100%, 0.55) 54%,
+      hsla(0, 0%, 100%, 0.6) 60%,
+      hsla(0, 0%, 100%, 0.65) 66%,
+      hsla(0, 0%, 100%, 0.6) 71%,
+      hsla(0, 0%, 100%, 0.65) 76%,
+      hsla(0, 0%, 100%, 0.7) 81%,
+      hsla(0, 0%, 100%, 0.7) 86%,
+      hsla(0, 0%, 100%, 0.75) 91%,
+      hsla(0, 0%, 100%, 0.75) 95%,
+      hsla(0, 0%, 100%, 0.75) 100%
+    );
+
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
@@ -97,7 +157,7 @@
   --transition-slow: all 0.3s ease-in-out;
 
   /* Color scheme */
-  color-scheme: light;
+  color-scheme: light dark;
   --color-mode: 'light';
 
 }
@@ -165,6 +225,7 @@ section {
   max-width: var(--container-max-width);
   margin-left: auto;
   margin-right: auto;
+  background-color: var(--neutral-alpha-100);
 }
 
 footer {
@@ -231,14 +292,14 @@ p {
   margin-bottom: var(--spacing-base);
 }
 
-a:not(.logo a) {
+a:not(a.btn) {
   color: var(--link-color);
   text-decoration: none;
   transition: var(--transition-base);
   position: relative;
 }
 
-a:hover {
+a:hover:not(a.btn) {
   color: var(--link-hover-color);
 }
 
@@ -370,7 +431,7 @@ table {
 
 th, td {
   padding: calc(var(--spacing-base) * 0.75);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--neutral-alpha-500);
   text-align: left;
 }
 
@@ -384,6 +445,10 @@ th {
   text-transform: uppercase;
   font-size: 0.875rem;
   letter-spacing: 0.05em;
+}
+
+tbody tr:nth-child(odd){
+  background-color: var(--neutral-alpha-200);
 }
 
 tr:last-child td {
@@ -569,7 +634,7 @@ input[type="submit"],
   display: inline-block;
   padding: calc(var(--spacing-base) * 0.75) var(--spacing-base);
   margin: 0.125rem 0.125rem 0.125rem 0;
-  background: var(--gradient-primary);
+  background: var(--gradient-secondary);
   color: white;
   border: none;
   border-radius: var(--border-radius-md);
@@ -579,11 +644,12 @@ input[type="submit"],
   transition: var(--transition-base);
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 }
 
-.btn {
+/* .btn {
   color: inherit;
-}
+} */
 
 /* Create the loading spinner using ::after pseudo-element */
 button:empty::after {
@@ -753,7 +819,6 @@ details > *:not(summary) {
 article, section, aside {
   margin-bottom: calc(var(--spacing-base) * 2);
   padding: var(--spacing-base);
-  background-color: var(--card-bg);
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow);
   transition: var(--transition-base);

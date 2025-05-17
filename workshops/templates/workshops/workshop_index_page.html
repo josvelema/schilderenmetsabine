@@ -1,15 +1,86 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
 
 {% block content %}
+<section class="workshops">
   <h1>{{ page.title }}</h1>
   <p>{{ page.intro|richtext }}</p>
 
-  <ul>
-    {% for workshop in page.get_children.live %}
-      <li><a href="{{ workshop.url }}">{{ workshop.title }}</a></li>
-    {% empty %}
-      <li>Er zijn nog geen workshops.</li>
+  <table>
+    <thead>
+      <tr>
+        <th>Workshop</th>
+        <th>Locatie</th>
+        <th>Datum</th>
+        <th>Status</th>
+        <th></th> {# voor een "meer info"-link #}
+      </tr>
+    </thead>
+    <tbody>
+      {% for workshop in workshops %}
+      {% with workshop.specific as w %}
+      <tr>
+        <td>{{ w.title }}</td>
+        <td>{{ w.location }}</td>
+        <td>
+          {% for sessie in w.sessions %}
+          <div>
+            {{ sessie.value.date }}
+            <!-- check if time is set -->
+            {% if sessie.value.time %}
+            om {{ sessie.value.time }}
+            {% endif %}
+
+          </div>
+          {% endfor %}
+        </td>
+        <td>{{ w.get_display_status }}</td>
+        <td><a href="{{ w.url }}">Meer info</a></td>
+      </tr>
+      {% endwith %}
+      {% empty %}
+      <tr>
+        <td colspan="5">Geen workshops gevonden.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</section>
+
+<section>
+  <div class="card-grid">
+    {% for workshop in workshops %}
+    {% with workshop.specific as w %}
+    <article class="card">
+      <h3>{{ w.title }}</h3>
+      {% if w.workshop_image %}
+      {% image w.workshop_image fill-400x250 as img %}
+      <img src="{{ img.url }}" alt="{{ img.alt }}">
+      {% endif %}
+      <div class="card-content">
+        {% for sessie in w.sessions %}
+        <div>
+          {{ sessie.value.date }}
+          <!-- check if time is set -->
+          {% if sessie.value.time %}
+          om {{ sessie.value.time }}
+          {% endif %}
+
+        </div>
+        {% endfor %}
+        <a href="{{ w.url }}" class="btn card-link">Meer info</a>
+
+      </div>
+
+    </article>
+    {% endwith %}
     {% endfor %}
-  </ul>
+  </div>
+
+</section>
+
+
+
 {% endblock %}
