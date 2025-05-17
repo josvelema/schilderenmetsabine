@@ -3,6 +3,7 @@ import os
 import sys
 
 if __name__ == "__main__":
+    import create_admin_user
     # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "schilderen_site.settings.production")
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "schilderen_site.settings.dev")
 
