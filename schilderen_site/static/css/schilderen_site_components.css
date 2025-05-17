@@ -148,7 +148,8 @@ section.hero {
 
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    grid-template-columns: min(60%, 500px) auto;
+  grid-template-rows: 1fr 1fr auto;
   z-index: 1;
 }
 
@@ -178,6 +179,7 @@ object-fit: cover;
   background-color: var(--neutral-alpha-100);
   background-image: var(--gradient-smoke);
   border-radius: var(--border-radius-md);
+  grid-row: 2 / 4;
 
 }
 
@@ -185,7 +187,30 @@ object-fit: cover;
   font-size: 2.5rem;
   line-height: 1.2;
   color: var(--accent-900);
-  text-shadow: 0 0 0.15rem var(--accent-600);
+  text-shadow: 0 0 0.1rem var(--accent-600);
+}
+
+.hero-header h2 {
+  color: var(--accent-900);
+  text-shadow: 0 0 0.1rem var(--accent-600);
+}
+
+.hero-header h2::after {
+  content: none
+}
+.hero .logo {
+    background-color: var(--neutral-alpha-100);
+    background-image: var(--gradient-smoke);
+    max-width: 250px;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--border-radius-sm);
+    grid-row: 3;
+    justify-self: flex-end;
+}
+
+.hero .logo img {
+  box-shadow: unset;
+    border: none;
 }
 
 .card-grid {
@@ -196,17 +221,15 @@ object-fit: cover;
 }
 
 .card, .workshop-teaser {
-  /* width: min(100%, 300px); */
-  max-width: 400px;
-  background-image: var(--gradient-smoke);
-  padding: unset;
-
-
-  display: grid;
-  grid-template-rows: 4rem auto auto 3rem;
-  gap: 1rem;
-
-  height: 100%;
+    /* width: min(100%, 300px); */
+    max-width: 400px;
+    background-image: var(--gradient-smoke);
+    padding: unset;
+    padding-block: 0 1rem;
+    display: grid;
+    grid-template-rows: 4rem auto 1fr;
+    gap: 1rem;
+    height: 100%;
 }
 
 .card > img {
@@ -343,4 +366,18 @@ footer ul li a {
 
 .scroller-controls .dot.active {
   background-color: #333;
+}
+
+@media (max-width: 768px) {
+  .hero .logo {
+    display: none;
+  }
+
+  .hero-header {
+   grid-column: span 2;
+  }
+
+  .card {
+    max-width: 100%;
+  }
 }

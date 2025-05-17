@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+{# 
+    Dit is de template voor de homepage. 
+    Het maakt gebruik van een StreamField om flexibele content weer te geven.
 
 
 {% block content %}
@@ -22,7 +27,11 @@
                     </a>
                 {% endif %}
             </div>
+            <!-- static img logo  -->
         </header>
+        <div class="logo">
+                                <img src="{% static 'img/logo_3.png' %}" alt="Logo schilderen met Sabine">
+        </div>
     </section>
     {# Flexibele content via StreamField #}
     {% for block in page.body %}
