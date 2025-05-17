@@ -1,4 +1,11 @@
-# create_admin.py
+import os
+import django
+
+# Zorg dat de juiste settings geladen worden
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "schilderen_site.settings.production")
+
+# Django initialiseren
+django.setup()
 
 from django.contrib.auth import get_user_model
 
