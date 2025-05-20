@@ -6,4 +6,4 @@ python manage.py makemigrations --noinput
 python manage.py migrate --noinput
 python manage.py collectstatic --noinput
 echo "▶️ Creating superuser if needed..."
-python manage.py shell < create_admin_user.pypytho
+python manage.py shell < create_admin_user.py
