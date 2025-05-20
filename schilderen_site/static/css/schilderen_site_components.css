@@ -273,6 +273,18 @@ but as a fallback you can chain `:not()` instead */
   align-self: start;
 }
 
+.workshop-info {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.workshop-description {
+  width: min(100%, 66ch);
+}
+
+
 .workshop-teaser {
   background-image: var(--gradient-smoke);
   padding: 1rem;
@@ -367,6 +379,39 @@ footer ul li a {
 .scroller-controls .dot.active {
   background-color: #333;
 }
+
+.whatsapp-block {
+  padding-block: 0.5rem 1rem;
+}
+
+.whatsapp-block a {
+    display: flex;
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.whatsapp-block a::before {
+  content: none;
+}
+
+.whatsapp-block svg {
+  display: block;
+}
+
+.breadcrumbs {
+  padding: 0.5rem 1rem;
+  background-image: var(--gradient-secondary);
+  color: var(--neutral-200)
+}
+
+.breadcrumbs span a {
+  color: var(--neutral-400);
+}
+
 
 @media (max-width: 768px) {
   .hero .logo {
